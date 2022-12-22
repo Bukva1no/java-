@@ -1,0 +1,115 @@
+//
+
+package lab_6;
+
+import java.sql.SQLData;
+
+public class zadanie_1 {
+    public static void main(String[] args) {
+
+        final int NANOSECONDS_PER_SCOND=1000000000, MILLISECONDS_PER_SECOND = 1000, SECONDS_PER_MINUTE = 60,
+                MINUTES_PER_HOUR = 60, HOURS_PER_DAY = 24;
+        long totalNanoseconds, totalMilliseconds , totalSeconds, currentSecond,
+                totalMinutes, currentMinute, totalHours, currentHour;
+        totalNanoseconds = System.nanoTime();
+        totalMilliseconds = System.currentTimeMillis();
+        totalSeconds = totalMilliseconds / MILLISECONDS_PER_SECOND;
+
+        currentSecond = totalSeconds % SECONDS_PER_MINUTE;
+        totalMinutes = totalSeconds / SECONDS_PER_MINUTE;
+        currentMinute = totalMinutes % MINUTES_PER_HOUR;
+        totalHours = totalMinutes / MINUTES_PER_HOUR+7;
+        currentHour = totalHours % HOURS_PER_DAY;
+        System.out.println("Текущее время равно " + currentHour + ":" + currentMinute + ":" + currentMinute + "+" + currentSecond + "GMT.");
+    }
+}
+----------------------------------------------------------------------------------
+
+package lab_6;
+import java.util.Scanner;
+public class zadanie_2 {
+    public static void main(String[] args) {
+        int amount, numberOf5000Roubles, numberOf2000Roubles, numberOf1000Roubles, numberOf500Roubles, numberOf100Roubles, numberOf200Roubles, numberOf50Roubles;
+        Scanner input = new Scanner(System.in);
+        System.out.print("Введите сумму в рублях, кратную 50: ");
+        amount = input.nextInt();
+
+        numberOf5000Roubles = amount / 5000;
+        amount %= 5000;
+
+        numberOf2000Roubles = amount / 2000;
+        amount %= 2000;
+
+        numberOf1000Roubles = amount / 1000;
+        amount %= 1000;
+
+        numberOf500Roubles = amount / 500;
+        amount %= 500;
+
+        numberOf200Roubles = amount / 200;
+        amount %= 200;
+
+        numberOf100Roubles = amount / 100;
+        amount %= 100;
+
+        numberOf50Roubles = amount / 50;
+
+
+        System.out.println("Ваша сумма состоит из ");
+        System.out.println(" " + numberOf5000Roubles + " шт. 5-тыс. руб. купюр, ");
+        System.out.println(" " + numberOf2000Roubles + " шт. 2-тыс. руб. купюр, ");
+        System.out.println(" " + numberOf1000Roubles + " шт. 1-тыс. руб. купюр, ");
+        System.out.println(" " + numberOf500Roubles + " шт. 500-руб. купюр, ");
+        System.out.println(" " + numberOf200Roubles + " шт. 200-руб. купюр, ");
+        System.out.println(" " + numberOf100Roubles + " шт. 100-руб. купюр, ");
+        System.out.println(" " + numberOf50Roubles + " шт. 50-руб. купюр, ");
+
+
+
+    }
+
+
+
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+import java.util.Scanner;
+
+public class zadanie3 {
+    public static void main(String[] args) {
+        final int MONTHS_PER_YEAR = 12;
+        double annualInterestRate, monthlyInterestRate, loanAmount, monthlyPayment, totalPayment;
+        int numberOfYears;
+        Scanner input = new Scanner(System.in);
+        System.out.print("Введите ежегодную ставку по кредиту в %, например, 8,25: ");
+        annualInterestRate = input.nextDouble();
+        System.out.print("Введите срок кредита в годах, например, 5: ");
+        numberOfYears = input.nextInt();
+        System.out.print("Введите сумму кредита в рублях, например, 120000,95: ");
+        loanAmount = input.nextDouble();
+        monthlyInterestRate = annualInterestRate / 12 / 100;
+        monthlyPayment = loanAmount * monthlyInterestRate / (1 - 1 / Math.pow(1 + monthlyInterestRate, numberOfYears * MONTHS_PER_YEAR));
+        totalPayment = monthlyPayment * numberOfYears * MONTHS_PER_YEAR;
+        System.out.println("Ежемесячный платеж равен " + (int)(monthlyPayment * 100) / 100.0 + " руб.");
+        System.out.println("Стоимость кредита равна " + (int)(totalPayment * 100) / 100.0 + " руб.");
+    }
+}
+
+--------------------------------------------------------------------------------------------------------
+package lab_6;
+import java.util.Scanner;
+public class Task_4 {
+    public static void main(String[] args) {
+        double dollars, rub;
+        final double course = 72.12;
+        Scanner input = new Scanner(System.in);
+        System.out.println("dollars: ");
+        dollars = input.nextDouble();
+        rub = dollars*course;
+        System.out.println("Rub from dollars: " + Math.ceil(rub));
+
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------
